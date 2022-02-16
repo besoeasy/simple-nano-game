@@ -46,7 +46,7 @@
 					<div>
 						<h5 class="mt-10 mb-3 text-lg font-bold font-heading text-gray-900">Max Win</h5>
 						<p>
-							Maximum Win Per Bet is <strong>{{ formatS(balance / 100) }} NANO</strong>, you can't win more than this per bet.
+							Maximum Win Per Bet is <strong>{{ formatS(balance / 10) }} NANO</strong>, you can't win more than this per bet.
 						</p>
 					</div>
 					<div>
