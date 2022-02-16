@@ -35,7 +35,7 @@ async function game() {
 
 		console.log('Float : ' + float);
                 
-                var amount = Math.min(lastbet.amount * 2, accountData.info.balance / 100) / 1000000000000000000000000000000;
+                var amount = Math.min(lastbet.amount * 2, accountData.info.balance / 10) / 1000000000000000000000000000000;
 
 		if (float < 49 && amount > 0.00000001) {
 			
