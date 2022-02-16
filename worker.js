@@ -43,7 +43,14 @@ async function game() {
 			
                 console.log(done2);
 			
-		}	
+		}
+
+	if (float > 90 ){
+                        var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 1);
+                        console.log(done3);
+	}
+
+	
 
 	} else {
 		console.log('fail safe');
@@ -54,9 +61,6 @@ async function main() {
 	while (true) {
 		try {
 			await game();
-			
-                        var done3 = await nano.send(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.01);
-                        console.log(done3);
 		} catch (e) {
 			console.log(e);
 		}
