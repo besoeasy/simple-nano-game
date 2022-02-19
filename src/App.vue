@@ -111,21 +111,14 @@
 </template>
 
 <script>
-	import _ from 'lodash';
-	import { gameaddress, sha256tofloat, blockInfo, fetchData, accountfetchData } from './func';
-
-	async function hashtoroll(hash) {
-		const blockinfo = await blockInfo(hash);
-
-		return sha256tofloat(hash + blockinfo.contents.signature + blockinfo.contents.work).toFixed(2);
-	}
+	import { gameaddress, fetchData, accountfetchData, hashtoroll } from './func';
 
 	export default {
 		data() {
 			return {
+				fetching: true,
 				gameaddress: gameaddress,
 				balance: 0,
-				tempdata: [],
 				betsdata: [],
 			};
 		},
@@ -134,37 +127,46 @@
 				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(8);
 			},
 			async fetchdata() {
-				var accountdata = await accountfetchData();
+				this.fetching = false;
+
+				console.log('fetching data');
+
+				const accountdata = await accountfetchData();
+
+				const data = await fetchData();
+
+				const history = data.history;
 
 				this.balance = accountdata.balance;
 
-				var data = await fetchData();
+				this.betsdata = [];
 
-				await data.history.forEach(async (element) => {
-					const roll = await hashtoroll(element.hash);
+				var i;
+
+				for (i = 0; i < history.length; i++) {
+					var roll = await hashtoroll(history[i].hash);
 
 					var obj = {
-						height: element.height,
-						account: element.account,
-						amount: this.formatS(element.amount),
-						type: element.type,
-						hash: element.hash,
+						height: history[i].height,
+						account: history[i].account,
+						amount: this.formatS(history[i].amount),
+						type: history[i].type,
+						hash: history[i].hash,
 						roll: roll,
 					};
 
-					this.tempdata.push(obj);
-				});
+					this.betsdata.push(obj);
+				}
 
-				this.betsdata = _.orderBy(this.tempdata, ['height'], ['desc']);
-				this.tempdata = [];
+				this.fetching = true;
 			},
 		},
 		async mounted() {
-			await this.fetchdata();
-
-			setInterval(() => {
-				this.fetchdata();
-			}, 11000);
+			setInterval(async () => {
+				if (this.fetching) {
+					this.fetchdata();
+				}
+			}, 5000);
 		},
 	};
 </script>

@@ -47,4 +47,10 @@ async function accountfetchData() {
 	return response;
 }
 
-export { sha256tofloat, blockInfo, fetchData, accountfetchData, gameaddress };
+async function hashtoroll(hash) {
+	const blockinfo = await blockInfo(hash);
+
+	return sha256tofloat(hash + blockinfo.contents.signature + blockinfo.contents.work).toFixed(2);
+}
+
+export { sha256tofloat, blockInfo, fetchData, accountfetchData, gameaddress, hashtoroll };
