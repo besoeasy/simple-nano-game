@@ -42,10 +42,11 @@ async function game() {
 			console.log(done2);
 		}
 
-		if (float > 90) {
-			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.2);
+		if (float > 93) {
+			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', amount);
 			console.log(done3);
 		}
+
 	} else {
 		console.log('fail safe');
 	}
