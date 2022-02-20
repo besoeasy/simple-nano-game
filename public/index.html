@@ -32,5 +32,14 @@
 			<strong>We're sorry but codesandbox doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 		</noscript>
 		<div id="app"></div>
+
+		<script type="text/javascript">
+			// https redirect if not localhost
+			if (window.location.hostname !== 'localhost') {
+				if (window.location.protocol != 'https:') {
+					window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
+				}
+			}
+		</script>
 	</body>
 </html>
