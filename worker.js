@@ -34,9 +34,9 @@ async function game() {
 
 		console.log('Float : ' + float);
 
-		var amount = Math.min(lastbet.amount * 2, accountData.info.balance / 10) / 1000000000000000000000000000000;
+		var amount = Math.min(lastbet.amount * 3, accountData.info.balance / 10) / 1000000000000000000000000000000;
 
-		if (float < 49 && amount > 0.00000001) {
+		if (float < 33 && amount > 0.00000001) {
 			var done2 = await nano.send(secrateKey, lastbet.account, amount);
 
 			console.log(done2);
@@ -46,7 +46,6 @@ async function game() {
 			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.2);
 			console.log(done3);
 		}
-		
 	} else {
 		console.log('fail safe');
 	}
