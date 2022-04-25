@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="px-3">
 		<section class="py-5 bg-white">
 			<div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row">
 				<div class="relative flex flex-col md:flex-row">
