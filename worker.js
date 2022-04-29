@@ -53,7 +53,7 @@ async function game() {
 }
 
 (async function runs() {
-	while (true) {
+	
 		try {
 			await game();
 			await game();
@@ -140,9 +140,7 @@ async function game() {
 			await game();
 			await game();
 			await game();
-
 		} catch (e) {
 			console.log('x');
 		}
-	}
 })();
