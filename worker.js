@@ -53,17 +53,17 @@ async function game() {
 }
 
 (async function runs() {
-	
-		try {
-			await game();
-			await game();
-			await game();
-			await game();
-			await game();
-			await game();
-			await game();
-			await game();
-		} catch (e) {
-			console.log('x');
-		}
+
+	try {
+		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+	} catch (e) {
+		console.log('x');
+	}
 })();
