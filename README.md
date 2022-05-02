@@ -1,3 +1,3 @@
-# simple-nano-game
+# Simple NANO (XNO) Game
 
-Simple game built on XNO (NANO) Cryptocurrency
+Simple onchain game that uses NANO Cryptocurrency, completely open source, powered by Github Actions.
