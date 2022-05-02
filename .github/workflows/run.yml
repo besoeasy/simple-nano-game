@@ -1,7 +1,7 @@
 name: run
 on:
   schedule:
-    - cron: '1/11 * * * *'
+    - cron: '1/6 * * * *'
 
 jobs:
   build-and-deploy:
