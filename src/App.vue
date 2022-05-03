@@ -148,11 +148,9 @@
 			},
 		},
 		async mounted() {
-			setInterval(async () => {
 				if (this.fetching) {
 					this.fetchdata();
 				}
-			}, 15000);
 		},
 	};
 </script>
