@@ -1,7 +1,7 @@
 const nano = require('nanopay');
 const sha256 = require('js-sha256');
 
-nano.init('https://vault.nanocrawler.cc/api/node-api', { node: 'https://bpow.banano.cc/service/', user: process.env.USER, api_key: process.env.API_KEY });
+nano.init('https://nault.nanos.cc/proxy', { node: 'https://bpow.banano.cc/service/', user: process.env.USER, api_key: process.env.API_KEY });
 
 const secrateKey = process.env.SECRATE_KEY;
 
