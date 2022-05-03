@@ -27,8 +27,6 @@ async function game() {
 
 	var blockinfo = await nano.blockInfo(lastbet.hash);
 
-	console.log(blockinfo);
-
 	if (lastbet.type == 'receive') {
 		var float = sha256tofloat(lastbet.hash + blockinfo.contents.signature + blockinfo.contents.work);
 
@@ -42,18 +40,17 @@ async function game() {
 			console.log(done2);
 		}
 
-		if (float > 93) {
-			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', amount);
-			console.log(done3);
-		}
-
 	} else {
 		console.log('fail safe');
 	}
 }
 
-(async function runs() {
+async function dev_pay() {
+			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.01);
+			console.log(done3);
+}
 
+(async function runs() {
 	try {
 		await game();
 		await game();
@@ -62,7 +59,14 @@ async function game() {
 		await game();
 		await game();
 		await game();
+                await game();
 		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+		await game();
+                await dev_pay();
 	} catch (e) {
 		console.log('x');
 	}
