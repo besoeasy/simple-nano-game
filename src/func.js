@@ -1,4 +1,4 @@
-const node = 'https://vault.nanocrawler.cc/api/node-api';
+const node = 'https://nault.nanos.cc/proxy';
 const gameaddress = 'nano_3zrie5gc4j8r536d3hj3pa48aejkskkgrec8f961xc78cmsw6uamx5z3q5xq';
 
 import axios from 'axios';
