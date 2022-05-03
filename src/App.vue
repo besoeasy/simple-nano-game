@@ -102,21 +102,16 @@
 	export default {
 		data() {
 			return {
-				fetching: true,
 				gameaddress: gameaddress,
-				balance: 1000000000000000000000000000000*15353,
+				balance: 1000000000000000000000000000000*1353,
 				betsdata: [],
 			};
 		},
 		methods: {
 			formatS: function(var1) {
-				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(4);
+				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(6);
 			},
 			async fetchdata() {
-				this.fetching = false;
-
-				console.log('fetching data');
-
 				const accountdata = await accountfetchData();
 
 				const data = await fetchData();
@@ -143,14 +138,10 @@
 
 					this.betsdata.push(obj);
 				}
-
-				this.fetching = true;
 			},
 		},
 		async mounted() {
-				if (this.fetching) {
-					this.fetchdata();
-				}
+                      this.fetchdata();
 		},
 	};
 </script>
