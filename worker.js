@@ -30,6 +30,7 @@ async function game() {
 	if (lastbet.type == 'receive') {
 		var float = sha256tofloat(lastbet.hash + blockinfo.contents.signature + blockinfo.contents.work);
 
+                console.log("Player : " + lastbet.account);
 		console.log('Float : ' + float);
 
 		var amount = Math.min(lastbet.amount * 3, accountData.info.balance / 20) / 1000000000000000000000000000000;
