@@ -25,7 +25,7 @@ async function fetchData() {
 		.post(node, {
 			action: 'account_history',
 			account: gameaddress,
-			count: 100,
+			count: 200,
 		})
 		.then(function(response) {
 			return response.data;
