@@ -203,10 +203,14 @@
 		},
 		async mounted() {
 			await this.fetchdata();
-
-			setInterval(function() {
-				this.fetchdata();
-			}, 1000 * 200);
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
+			await this.fetchdata();
 		},
 	};
 </script>
