@@ -11,7 +11,7 @@
 				<div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
 					<nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
 						<a :href="'https://nanocrawler.cc/explorer/account/' + gameaddress" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Explorer</a>
-						<a :href="'https://github.com/besoeasy/simple-nano-game?' + gameaddress" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Github</a>
+						<a :href="https://github.com/besoeasy/simple-nano-game" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Github</a>
 					</nav>
 				</div>
 			</div>
@@ -19,8 +19,7 @@
 
 		<section class="text-gray-600 body-font">
 			<div class="container mx-auto flex px-5 py-10 items-center justify-center flex-col">
-				<h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">DEPOSIT NANO TO PLAY !</h1>
-
+				<h1 class="title-font text-2xl mb-4 font-medium text-gray-900">DEPOSIT NANO TO PLAY</h1>
 				<img class="mb-10 object-cover object-center rounded" src="deposit.png" />
 				<div class="text-center lg:w-2/3 w-full">
 					<p class="mb-8 leading-relaxed text-xl">
