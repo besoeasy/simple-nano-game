@@ -11,18 +11,18 @@
 				<div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
 					<nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
 						<a :href="'https://nanocrawler.cc/explorer/account/' + gameaddress" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Explorer</a>
-						<a :href="https://github.com/besoeasy/simple-nano-game" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Github</a>
+						<a href="https://github.com/besoeasy/simple-nano-game" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900 uppercase">Github</a>
 					</nav>
 				</div>
 			</div>
 		</section>
 
-		<section class="text-gray-600 body-font">
+		<section class="text-gray-600">
 			<div class="container mx-auto flex px-5 py-10 items-center justify-center flex-col">
-				<h1 class="title-font text-2xl mb-4 font-medium text-gray-900">DEPOSIT NANO TO PLAY</h1>
-				<img class="mb-10 object-cover object-center rounded" src="deposit.png" />
+				<h1 class="title-font text-2xl m-2 font-medium">DEPOSIT NANO TO PLAY</h1>
+				<img class="m-2 object-cover object-center rounded" src="deposit.png" />
 				<div class="text-center lg:w-2/3 w-full">
-					<p class="mb-8 leading-relaxed text-xl">
+					<p class="m-2 leading-relaxed text-xl">
 						{{ gameaddress }}
 					</p>
 					<div class="flex justify-center sm:block md:hidden">
@@ -32,8 +32,8 @@
 			</div>
 		</section>
 
-		<section class="py-10 text-center">
-			<div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+		<section class="py-3 text-center">
+			<div class="max-w-screen-xl px-4 py-4 mx-auto sm:px-6 lg:px-8">
 				<ul class="grid grid-cols-2 gap-4 border-2 border-teal-600 rounded-xl lg:grid-cols-4">
 					<li class="p-8">
 						<p class="text-2xl font-extrabold text-teal-500">
