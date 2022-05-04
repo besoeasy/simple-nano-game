@@ -100,7 +100,7 @@
 
 	const gameaddress = 'nano_3zrie5gc4j8r536d3hj3pa48aejkskkgrec8f961xc78cmsw6uamx5z3q5xq';
 
-	const node = nodes[Math.floor(Math.random() * nodes.length)];
+	let node = nodes[Math.floor(Math.random() * nodes.length)];
 
 	import axios from 'axios';
 	import sha256 from 'js-sha256';
@@ -126,7 +126,7 @@
 			.post(node, {
 				action: 'account_history',
 				account: gameaddress,
-				count: 200,
+				count: 100,
 			})
 			.then(function(response) {
 				return response.data;
@@ -167,36 +167,46 @@
 				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(6);
 			},
 			async fetchdata() {
+				node = nodes[Math.floor(Math.random() * nodes.length)];
+
+				console.log('Node : ' + node);
+
 				const accountdata = await accountfetchData();
 
 				const data = await fetchData();
 
 				const history = data.history;
 
-				this.balance = accountdata.balance;
+				if (history.length > 1) {
+					this.balance = accountdata.balance;
 
-				this.betsdata = [];
+					this.betsdata = [];
 
-				var i;
+					var i;
 
-				for (i = 0; i < history.length; i++) {
-					var roll = await hashtoroll(history[i].hash);
+					for (i = 0; i < history.length; i++) {
+						var roll = await hashtoroll(history[i].hash);
 
-					var obj = {
-						height: history[i].height,
-						account: history[i].account,
-						amount: this.formatS(history[i].amount),
-						type: history[i].type,
-						hash: history[i].hash,
-						roll: roll,
-					};
+						var obj = {
+							height: history[i].height,
+							account: history[i].account,
+							amount: this.formatS(history[i].amount),
+							type: history[i].type,
+							hash: history[i].hash,
+							roll: roll,
+						};
 
-					this.betsdata.push(obj);
+						this.betsdata.push(obj);
+					}
 				}
 			},
 		},
 		async mounted() {
-			this.fetchdata();
+			await this.fetchdata();
+
+			setInterval(function() {
+				this.fetchdata();
+			}, 1000 * 200);
 		},
 	};
 </script>

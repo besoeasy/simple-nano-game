@@ -30,7 +30,7 @@ async function game() {
 	if (lastbet.type == 'receive') {
 		var float = sha256tofloat(lastbet.hash + blockinfo.contents.signature + blockinfo.contents.work);
 
-                console.log("Player : " + lastbet.account);
+		console.log("Player : " + lastbet.account);
 		console.log('Float : ' + float);
 
 		var amount = Math.min(lastbet.amount * 3, accountData.info.balance / 20) / 1000000000000000000000000000000;
@@ -47,8 +47,8 @@ async function game() {
 }
 
 async function dev_pay() {
-			var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.01);
-			console.log(done3);
+	var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.01);
+	console.log(done3);
 }
 
 (async function runs() {
@@ -60,7 +60,7 @@ async function dev_pay() {
 		await game();
 		await game();
 		await game();
-                await game();
+		await game();
 		await game();
 		await game();
 		await game();
@@ -68,9 +68,9 @@ async function dev_pay() {
 		await game();
 		await game();
 
-                if(Math.random() > 0.8){
-                await dev_pay();
-                }
+		if (Math.random() > 0.9) {
+			await dev_pay();
+		}
 
 	} catch (e) {
 		console.log('x');
