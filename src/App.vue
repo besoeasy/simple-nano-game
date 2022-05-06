@@ -28,6 +28,9 @@
 					<div class="flex justify-center sm:block md:hidden">
 						<a :href="'nano:' + gameaddress" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Open Natrium</a>
 					</div>
+					<div class="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert">
+						<strong class="text-sm font-medium">To Save Resources, Game Runs every 9 minutes, Feel free to close tab ! </strong>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -70,9 +73,11 @@
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">#</th>
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Player</th>
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Amount</th>
+
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Roll</th>
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Type</th>
 							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Block</th>
+							<th class="px-4 py-2 font-medium text-left text-gray-900 whitespace-nowrap">Time</th>
 						</tr>
 					</thead>
 
@@ -81,15 +86,21 @@
 							<td class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap">{{ item.height }}</td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap">{{ item.account }}</td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap">{{ item.amount }}</td>
+
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap">
 								<div v-if="item.type == 'receive'">{{ item.roll }}</div>
 								<div v-if="item.type !== 'receive'">--</div>
 							</td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap"><a v-if="item.type == 'send'" class="px-4 py-1 text-red-400 rounded">SEND</a> <a v-if="item.type == 'receive'" class="px-4 py-1 text-green-400 rounded ">RECEIVE</a></td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap"><a target="_blank" class="px-4 py-1 text-white bg-blue-400 rounded" v-bind:href="'https://nanocrawler.cc/explorer/block/' + item.hash">View</a></td>
+							<td class="px-4 py-2 text-gray-700 whitespace-nowrap">{{ item.time }}</td>
 						</tr>
 					</tbody>
 				</table>
+
+				<div class="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert">
+					<strong class="text-sm font-medium">Connected to Node : {{ node }} </strong>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -104,6 +115,7 @@
 
 	import axios from 'axios';
 	import sha256 from 'js-sha256';
+	import * as timeago from 'timeago.js';
 
 	function sha256tofloat(hash) {
 		hash = sha256(hash);
@@ -158,6 +170,7 @@
 		data() {
 			return {
 				gameaddress: gameaddress,
+				node: '',
 				balance: 1000000000000000000000000000000 * 1353,
 				betsdata: [],
 			};
@@ -168,12 +181,15 @@
 			},
 			async fetchdata() {
 				node = nodes[Math.floor(Math.random() * nodes.length)];
+				this.node = node;
 
 				console.log('Node : ' + node);
 
 				const accountdata = await accountfetchData();
 
 				const data = await fetchData();
+
+				console.log(accountdata);
 
 				const history = data.history;
 
@@ -187,6 +203,8 @@
 					for (i = 0; i < history.length; i++) {
 						var roll = await hashtoroll(history[i].hash);
 
+						var time_r = timeago.format(parseInt(history[i].local_timestamp) * 1000);
+
 						var obj = {
 							height: history[i].height,
 							account: history[i].account,
@@ -194,6 +212,7 @@
 							type: history[i].type,
 							hash: history[i].hash,
 							roll: roll,
+							time: time_r,
 						};
 
 						this.betsdata.push(obj);

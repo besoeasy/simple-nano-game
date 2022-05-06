@@ -9,8 +9,10 @@
   },
   "dependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
+    "javascript-time-ago": "^2.3.13",
     "js-sha256": "^0.9.0",
     "nanopay": "^3.0.5",
+    "timeago.js": "^4.0.2",
     "vue": "^2.6.11"
   },
   "devDependencies": {
