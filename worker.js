@@ -68,7 +68,7 @@ async function dev_pay() {
 		await game();
 		await game();
 
-		if (Math.random() > 0.9) {
+		if (Math.random() > 0.97) {
 			await dev_pay();
 		}
 
