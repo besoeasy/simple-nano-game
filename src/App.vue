@@ -181,7 +181,6 @@
 			},
 			async fetchdata() {
 				node = nodes[Math.floor(Math.random() * nodes.length)];
-				this.node = node;
 
 				console.log('Node : ' + node);
 
@@ -194,6 +193,8 @@
 				const history = data.history;
 
 				if (history.length > 1) {
+					this.node = node;
+
 					this.balance = accountdata.balance;
 
 					this.betsdata = [];
