@@ -177,7 +177,7 @@
 		},
 		methods: {
 			formatS: function(var1) {
-				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(6);
+				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(4);
 			},
 			async fetchdata() {
 				node = nodes[Math.floor(Math.random() * nodes.length)];
