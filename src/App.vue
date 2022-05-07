@@ -53,12 +53,12 @@
 					</li>
 
 					<li class="p-8">
-						<p class="text-2xl font-extrabold text-teal-500">33</p>
+						<p class="text-2xl font-extrabold text-teal-500">20</p>
 						<p class="mt-1 text-lg font-medium">Roll Below</p>
 					</li>
 
 					<li class="p-8">
-						<p class="text-2xl font-extrabold text-teal-500">3 Times</p>
+						<p class="text-2xl font-extrabold text-teal-500">5 Times</p>
 						<p class="mt-1 text-lg font-medium">Win</p>
 					</li>
 				</ul>
