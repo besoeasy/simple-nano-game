@@ -47,9 +47,9 @@
 
 					<li class="p-8">
 						<p class="text-2xl font-extrabold text-teal-500">
-							<strong>{{ formatS(balance / 20) }} NANO</strong>
+							<strong>{{ formatS((balance / 20)/5) }} NANO</strong>
 						</p>
-						<p class="mt-1 text-lg font-medium">Max Win</p>
+						<p class="mt-1 text-lg font-medium">Max Bet</p>
 					</li>
 
 					<li class="p-8">
