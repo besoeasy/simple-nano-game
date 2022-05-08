@@ -33,7 +33,7 @@ async function game() {
 		console.log("Player : " + lastbet.account);
 		console.log('Float : ' + float);
 
-		var amount = Math.min(lastbet.amount * 5, accountData.info.balance / 25) / 1000000000000000000000000000000;
+		var amount = Math.min(lastbet.amount * 5, accountData.info.balance / 20) / 1000000000000000000000000000000;
 
 		if (float < 20 && amount > 0.00009) {
 			var done2 = await nano.send(secrateKey, lastbet.account, amount);
