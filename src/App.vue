@@ -40,16 +40,16 @@
 				<ul class="grid grid-cols-2 gap-4 border-2 border-teal-600 rounded-xl lg:grid-cols-4">
 					<li class="p-8">
 						<p class="text-2xl font-extrabold text-teal-500">
-							<strong>{{ formatS(balance) }} NANO</strong>
+							<strong>{{ formatS(balance*123) }} NANO</strong>
 						</p>
 						<p class="mt-1 text-lg font-medium">Game Balance</p>
 					</li>
 
 					<li class="p-8">
 						<p class="text-2xl font-extrabold text-teal-500">
-							<strong>{{ formatS((balance / 20)/5) }} NANO</strong>
+							<strong>{{ formatS(balance / 20) }} NANO</strong>
 						</p>
-						<p class="mt-1 text-lg font-medium">Max Bet</p>
+						<p class="mt-1 text-lg font-medium">Max Win</p>
 					</li>
 
 					<li class="p-8">
