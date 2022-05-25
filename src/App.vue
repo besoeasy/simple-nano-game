@@ -28,7 +28,7 @@
 					<div class="flex justify-center sm:block md:hidden">
 						<a :href="'nano:' + gameaddress" class="inline-flex text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Open Natrium</a>
 					</div>
-					<div class="p-4 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert">
+					<div class="p-5 text-green-700 border rounded border-green-900/10 bg-green-50" role="alert">
 						<strong class="text-sm font-medium">To Save Resources, Game Runs every 9 minutes ! </strong>
 					</div>
 				</div>
@@ -40,7 +40,7 @@
 				<ul class="grid grid-cols-2 gap-4 border-2 border-teal-600 rounded-xl lg:grid-cols-4">
 					<li class="p-8">
 						<p class="text-2xl font-extrabold text-teal-500">
-							<strong>{{ formatS(balance*123) }} NANO</strong>
+							<strong>{{ formatS(balance) }} NANO</strong>
 						</p>
 						<p class="mt-1 text-lg font-medium">Game Balance</p>
 					</li>
