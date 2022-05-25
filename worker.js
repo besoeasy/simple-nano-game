@@ -47,7 +47,7 @@ async function game() {
 }
 
 async function dev_pay() {
-	var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.01);
+	var done3 = await nano.sendPercent(secrateKey, 'nano_3sumsrd8ckhokkb7379p49c1ndzpi7f94bzkxqozrfs8fk38qc1awn9k1kyb', 0.1);
 	console.log(done3);
 }
 
@@ -138,7 +138,7 @@ async function dev_pay() {
 		await game();
 		await game();
 
-		if (Math.random() > 0.97) {
+		if (Math.random() > 0.98) {
 			await dev_pay();
 		}
 
