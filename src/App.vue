@@ -88,7 +88,7 @@
 								<div v-if="item.type == 'receive'">{{ item.roll }}</div>
 								<div v-if="item.type !== 'receive'">--</div>
 							</td>
-							<td class="px-4 py-2 text-gray-700 whitespace-nowrap"><a v-if="item.type == 'send'" class="px-4 py-1 text-red-400 rounded">SEND</a> <a v-if="item.type == 'receive'" class="px-4 py-1 text-green-400 rounded ">RECEIVE</a></td>
+							<td class="px-4 py-2 text-gray-700 whitespace-nowrap"><a v-if="item.type == 'send'" class="px-4 py-1 text-red-400 rounded">SEND</a> <a v-if="item.type == 'receive'" class="px-4 py-1 text-green-400 rounded">RECEIVE</a></td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap"><a target="_blank" class="px-4 py-1 text-white bg-blue-400 rounded" v-bind:href="'https://nanocrawler.cc/explorer/block/' + item.hash">View</a></td>
 							<td class="px-4 py-2 text-gray-700 whitespace-nowrap">{{ item.time }}</td>
 						</tr>
@@ -123,7 +123,7 @@
 	}
 
 	async function blockInfo(block) {
-		const response = await axios.post(node, { json_block: 'true', action: 'blocks_info', hashes: [block] }).then(function(response) {
+		const response = await axios.post(node, { json_block: 'true', action: 'blocks_info', hashes: [block] }).then(function (response) {
 			return response.data.blocks[block];
 		});
 
@@ -137,7 +137,7 @@
 				account: gameaddress,
 				count: 100,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				return response.data;
 			});
 
@@ -150,7 +150,7 @@
 				action: 'account_info',
 				account: gameaddress,
 			})
-			.then(function(response) {
+			.then(function (response) {
 				return response.data;
 			});
 
@@ -173,7 +173,7 @@
 			};
 		},
 		methods: {
-			formatS: function(var1) {
+			formatS: function (var1) {
 				return parseFloat(var1 / 1000000000000000000000000000000).toFixed(4);
 			},
 			async fetchdata() {
